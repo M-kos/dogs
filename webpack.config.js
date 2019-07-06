@@ -6,10 +6,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './uikit/src/index.js',
+    entry: './src/index.js',
     output: {
         filename: 'js/bundle.js',
-        path: path.resolve(__dirname, './uikit/dist')
+        path: path.resolve(__dirname, './dist')
     },
     optimization: {
         minimizer: [
@@ -60,7 +60,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin ({ 
             filename: 'index.html',
-            template: path.resolve(__dirname, './uikit/src/index.pug')
+            template: path.resolve(__dirname, './src/index.html')
         }),
         new MiniCssExtractPlugin({
             filename: 'css/style.css'
@@ -71,7 +71,7 @@ module.exports = {
         })
     ],
     devServer: {
-        contentBase: path.resolve(__dirname, './uikit/dist'),
+        contentBase: path.resolve(__dirname, './dist'),
         port: 3200,
         overlay: true,
         open: true
